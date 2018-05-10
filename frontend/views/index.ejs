@@ -12,15 +12,14 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="float:left; width:70%">
+      <img src="http://localhost:8080/logo_nom.jpg"/>
       <fieldset>
         <form action="/" method="post">
           <input name="paraula" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
           <input type="submit" class="ghost-button" value="Tradueix-la a LSC">
         </form>
       </fieldset>
-    </div>
-    <div>
         <% if(video !== null) { %>
           <p><%- video %></p>
         <% } %>
@@ -34,12 +33,22 @@
           <p><%- correccio %></p>
         <% } %>
     </div>
-    <div class="container">
+    <div class="container" style="float:left; width:30%">
+      <p>Ja tenim 2631 entrades!</p>
       <fieldset>
         <form action="/pujar_video" method="get">
           <input type="submit" class = "ghost-button" value="Afegeix un signe">
         </form>
+        Anima't
       </fieldset>
+      <p>
+        Paraules de la setmana<br>
+        video1 video2 video3
+      </p>
+      <p>
+        Darreres paraules cercades<br>
+        video1 video2 video3
+      </p>
     <div class="container">
     <div class="footer">
       Utilitzem les APIs de
