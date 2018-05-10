@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+	<link rel="icon" href="../frontend/public/imatges/logo.jpg"/>
     <title>
         Signepèdia - Paraula cercada
     </title>
@@ -10,38 +11,35 @@
     <link href="../frontend/public/css/style.css" rel = "stylesheet">
   </head>
   <body>
-    <div class="container" style="float:left; width:70%">
-      <img src="http://localhost:8080/logo_nom.jpg"/>
+    <header>
+      <img src="../frontend/public/imatges/logo_nom.jpg"/>
+	</header>
+    <div class="colPrincipal">
       <fieldset>
         <form action="/" method="post">
           <input name="paraula" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
-          <input type="submit" class="ghost-button" value="Tradueix-la a LSC">
+          <input type="submit" class="ghost-button" value="Tradueix a LSC">
         </form>
       </fieldset>
-      <p>No tenim registrada la paraula "Brunada"</p>
+	  <p class = "videoAutor"><video width="480"  controls autoplay muted src="../frontend/public/videos/fi.mp4"></video>
+	  <br>Autor/a del vídeo: Albert Masclans.</p>
+	  <p>Potser t'interessa mirar altres videos d'aquest noi tant guapo</p>
     </div>
-    <div class="container" style="float:left; width:30%">
-      <p>Ja tenim 2631 entrades!</p>
+	
+    <div class="colDreta">
+	  <p>Aquest projecte creix amb la teva col·laboració!</p>
       <fieldset>
         <form action="/pujar_video" method="get">
           <input type="submit" class = "ghost-button" value="Afegeix un signe">
         </form>
-        Anima't
       </fieldset>
-      <p>
-        Paraules de la setmana<br>
-        video1 video2 video3
-      </p>
-      <p>
-        Darreres paraules cercades<br>
-        video1 video2 video3
-      </p>
-    <div class="container">
-    <div class="footer">
+      <p>Ja tenim 2631 entrades!</p>
+    </div>
+    <footer class="reconeixements">
       Utilitzem les APIs de
       <a href="https://languagetool.org/">LanguageTool</a>
       i
       <a href="https://openthesaurus.softcatala.org/">OpenThesaurus-ca</a>
-    </div>
+    </footer>
   </body>
 </html>
