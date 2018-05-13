@@ -30,10 +30,6 @@ fieldset {
 	border-image-repeat: initial;
 	min-width: -webkit-min-content;
 }
-.ghost-input {
-	padding: 10px 0;
-	margin: 0;
-}
 .ghost-input, p , form {
 	display: block;
 	font-weight:300;
@@ -44,6 +40,8 @@ fieldset {
 }
 .ghost-input {
 	width: 480px;
+	padding: 10px 0;
+	margin: 0;
 }
 .ghost-button {
 	color: #4b545f;
