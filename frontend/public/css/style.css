@@ -7,9 +7,6 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	color: #4b545f;
 }
-.container {
-	margin: 0 auto;
-}
 fieldset {
 	display: block;
 	-webkit-margin-start: 0;
@@ -70,22 +67,17 @@ fieldset {
 .videoAutor {
 	font-size: 15px;
 }
-.colPrincipal {
+.col, .col-principal {
 	float: left;
-	width: 70%;
-	padding: 30px;
+	padding: 10px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	min-width: 480px;
-}
-.colDreta {
-	float: left;
 	width: 30%;
-	padding: 30px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+}
+.col-principal {
+	width: 40%;
+	min-width: 500px;
 }
 .reconeixements {
 	position: fixed;

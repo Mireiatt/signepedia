@@ -14,19 +14,7 @@
     <header>
       <img src="../frontend/public/imatges/logo_nom.jpg"/>
 	</header>
-    <div class="colPrincipal">
-      <fieldset>
-        <form action="/" method="post">
-          <input name="paraula" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
-          <input type="submit" class="ghost-button" value="Tradueix a LSC">
-        </form>
-      </fieldset>
-	  <p class = "videoAutor"><video width="480"  controls autoplay muted src="../frontend/public/videos/fi.mp4"></video>
-	  <br>Autor/a del vídeo: Albert Masclans.</p>
-	  <p>Potser t'interessa mirar altres videos d'aquest noi tant guapo</p>
-    </div>
-	
-    <div class="colDreta">
+    <div class="col">
 	  <p>Aquest projecte creix amb la teva col·laboració!</p>
       <fieldset>
         <form action="/pujar_video" method="get">
@@ -35,6 +23,19 @@
       </fieldset>
       <p>Ja tenim 2631 entrades!</p>
     </div>
+    <div class="col-principal">
+      <fieldset>
+        <form action="/" method="post">
+          <input name="paraula" type="text" class="ghost-input" placeholder="Escriu una paraula" required>
+          <input type="submit" class="ghost-button" value="Tradueix a LSC">
+        </form>
+      </fieldset>
+	  <p class = "videoAutor"><video width="480"  controls autoplay muted src="../frontend/public/videos/fi.mp4"></video>
+	  <br>Autor/a del vídeo: Albert Masclans.</p>
+    </div>
+	<div class="col">
+	  <p>Potser t'interessa mirar altres videos d'aquest noi tant guapo</p>
+	</div>
     <footer class="reconeixements">
       Utilitzem les APIs de
       <a href="https://languagetool.org/">LanguageTool</a>
