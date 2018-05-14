@@ -1,9 +1,22 @@
 import requests
+import logging
 from src import cercador
 
 # Obtenim les correccions ortogràfiques d'una "paraula" a través de LanguageTool.
 # Si no hi ha correcció, retornem "None".
+# En cas de no podernos connectar al servidor, creem un log amb informacio al respecte.
 # Cal evitar saturar el servidor.
+
+
+def create_log(paraula,req,resposta,missatge):
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.ERROR)
+    formatter = logging.Formatter("%(asctime)s:%(levelname)s:%(message)s")
+    log_filename = paraula
+    file_handler = logging.FileHandler(log_filename)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    logging.error(paraula + "/" + req + "/" + resposta + "/" + missatge)
 
 def get_correccio(paraula):
     try:
@@ -18,7 +31,7 @@ def get_correccio(paraula):
             return paraules
         return None
     except:
-        return None
+        create_log(paraula,req,resposta,missatge)
 
 # Retornem un mapa amb la possible correcció d'una "paraula" si la tenim registrada.
 
