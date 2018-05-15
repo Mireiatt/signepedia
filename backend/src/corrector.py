@@ -22,12 +22,11 @@ def get_correccio(paraula):
 
 # Retornem un mapa amb la possible correcció d'una "paraula" si la tenim registrada.
 
-def corregeix_paraula(paraula):
+def corregeix_paraula(paraula, cnx):
     correccions = get_correccio(paraula)
     if correccions is not None:
         for correccio in correccions:
-            paraula_correcte =  cercador.tenim_entrada(correccio)
-            if paraula_correcte is not None:
-                return dict(paraula=paraula, correccio=paraula_correcte)
+            if cercador.tenim_entrada(correccio, cnx):
+                return dict(paraula=paraula, correccio=correccio)
     
     return dict(paraula=paraula)

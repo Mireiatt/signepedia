@@ -22,13 +22,12 @@ def get_sinonims(paraula):
 
 # Retornem un mapa amb els sinonims que tenims registrats d'una "paraula", si n'hi ha algún.
 
-def troba_sinonims(paraula):
+def troba_sinonims(paraula, cnx):
     sinonims = get_sinonims(paraula)
     sinonimsRegistrats = []
     for sinonim in sinonims:
-        sinonimRegistrat = cercador.tenim_entrada(sinonim)
-        if sinonimRegistrat is not None:
-            sinonimsRegistrats.append(sinonimRegistrat)
+        if cercador.tenim_entrada(sinonim, cnx):
+            sinonimsRegistrats.append(sinonim)
 
     if sinonimsRegistrats:
         return sinonimsRegistrats

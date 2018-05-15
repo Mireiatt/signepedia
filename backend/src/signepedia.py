@@ -21,13 +21,13 @@ def neteja_entrada(entrada):
 # 3- Sinònims de "paraula"
 # 4- (Si 1, 2 i 3 fallen) Correcció ortogràfica de "paraula"
 
-def retorna_entrada(paraula):
-    entrada = cercador.obte_entrada(paraula)
-    alternatives = sinonims.troba_sinonims(paraula)
+def retorna_entrada(paraula, cnx):
+    entrada = cercador.obte_entrada(paraula, cnx)
+    alternatives = sinonims.troba_sinonims(paraula, cnx)
     if entrada is None and alternatives is not None:
         return dict(paraula=paraula, sinonims=alternatives)
     elif entrada is not None:
         if alternatives is not None:
             entrada["sinonims"] = alternatives
         return neteja_entrada(entrada)
-    return corrector.corregeix_paraula(paraula)
+    return corrector.corregeix_paraula(paraula, cnx)

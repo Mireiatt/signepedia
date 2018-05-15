@@ -1,7 +1,10 @@
 *.sw[a-p]
 
+backend/diccionari.csv
+
 backend/__pycache__/*
 backend/*/__pycache__/*
+backend/dades_mysql.json
 
 frontend/node_modules
 frontend/package-lock.json

@@ -1,5 +1,6 @@
 from src import corrector
 import unittest
+from src import bd
 
 class TestCorrector(unittest.TestCase):
 
@@ -17,8 +18,6 @@ class TestCorrector(unittest.TestCase):
 
     def test_falla(self):
         self.assertEqual(corrector.get_correccio("jksdfjfqp"), None)
-
-    def test_altre_error(self):
         self.assertEqual(corrector.get_correccio("sant jordi"), None)
 
     ###########################
@@ -29,8 +28,10 @@ class TestCorrector(unittest.TestCase):
     # No en fem més per evitar saturar el servidor.
 
     def test_corregeix_paraula(self):
-        self.assertEqual(corrector.corregeix_paraula("master"), {"paraula": "master", "correccio": "màster"})
-        self.assertEqual(corrector.corregeix_paraula("miñisteri"), {"paraula": "miñisteri"})
+        cnx = bd.connecta()
+        self.assertEqual(corrector.corregeix_paraula("master", cnx), {"paraula": "master", "correccio": "màster"})
+        self.assertEqual(corrector.corregeix_paraula("miñisteri", cnx), {"paraula": "miñisteri"})
+        cnx.close()
 
 if __name__ == '__main__':
     unittest.main()

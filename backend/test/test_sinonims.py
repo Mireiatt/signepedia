@@ -1,5 +1,7 @@
 from src import sinonims
 import unittest
+from src import bd
+
 
 class TestSinonims(unittest.TestCase):
 
@@ -22,10 +24,10 @@ class TestSinonims(unittest.TestCase):
     # No en fem més per evitar enlentir les proves.
 
     def test_troba_sinonims(self):
-        self.assertEqual(sinonims.troba_sinonims("escola"), ["col·legi","estudi","institut"])
-
-    def test_no_troba_sinonims(self):
-        self.assertEqual(sinonims.troba_sinonims("llamp"), None)
+        cnx = bd.connecta()
+        self.assertEqual(sinonims.troba_sinonims("escola", cnx), ["col·legi","estudi","institut"])
+        self.assertEqual(sinonims.troba_sinonims("llamp", cnx), None)
+        cnx.close()
 
 if __name__ == '__main__':
     unittest.main()

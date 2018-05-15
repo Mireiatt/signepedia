@@ -1,16 +1,13 @@
-import os.path
-import csv
-
 # Retornem si "paraula" esta registrada al diccionari.
 
-def tenim_entrada(paraula):
-    with open("diccionari.csv") as diccionariCSV:
-        diccionari = csv.DictReader(diccionariCSV)
-        for entrada in diccionari:
-            if (entrada["paraula"].lower() == paraula.lower()):
-                return entrada["paraula"]
+def tenim_entrada(paraula, cnx):
+    cursor = cnx.cursor()
 
-        return None
+    query = "SELECT COUNT(paraula) FROM diccionari WHERE Hex(LOWER(paraula)) LIKE Hex(LOWER(\"" + paraula  +"\"))"
+    cursor.execute(query)
+    registrada = cursor.fetchall()[0][0] != 0
+    cursor.close()
+    return registrada
 
 # Retornem una entrada netejant la informació:
 # - Dividim el camp "alternatives".
@@ -25,11 +22,12 @@ def neteja_entrada(entrada):
 
 # Retornem l'entrada del diccionari, d'una "paraula".
 
-def obte_entrada(paraula):
-    with open("diccionari.csv") as diccionariCSV:
-        diccionari = csv.DictReader(diccionariCSV)
-        for entrada in diccionari:
-            if entrada["paraula"].lower() == paraula.lower():
-                return neteja_entrada(entrada)
-
+def obte_entrada(paraula, cnx):
+    cursor = cnx.cursor(dictionary=True)
+    query = "SELECT * FROM diccionari WHERE Hex(LOWER(paraula)) LIKE Hex(LOWER(\"" + paraula + "\"))"
+    cursor.execute(query)
+    resultat = cursor.fetchall()
+    cursor.close()
+    if resultat:
+        return neteja_entrada(resultat[0])
     return None

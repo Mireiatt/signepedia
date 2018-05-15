@@ -3,7 +3,6 @@ import unittest
 testmodules = [
     "test.test_cercador",
     "test.test_corrector",
-    "test.test_diccionari",
     "test.test_signepedia",
     "test.test_sinonims"
     ]
