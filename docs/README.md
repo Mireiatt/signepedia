@@ -13,12 +13,22 @@ Qualsevol comentari a les [Issues](https://github.com/Masclins/signepedia/issues
 
 Per una col·laboració més activa es recomana llegir el document [`docs/CONTRIBUTING.md`](https://github.com/Masclins/signepedia/blob/nou-csv/docs/CONTRIBUTING.md).
 
-## Instal·lació
-L'aplicació és accesible en l'estat de la branca `master` a http://signepedia.cat.
+## Ús
+L'aplicació és accesible en l'estat de la branca de l'última Release a http://signepedia.cat.
+
+### Desenvolupament
 
 Per fer servir la versió en local, cal instal·lar [Docker](https://store.docker.com/search?type=edition&offering=community) i clonar el repositori (`git clone https://github.com/Masclins/signepedia`).
 
-## Ús
+Si per les proves locals necessits accés a la base de dades, envia un mail a signepedia@gmail.com. Cal crear l'arxiu `backend/dades_mysql.json`.
+En aquest arxiu ha d'haver-hi:
+```json
+{
+    "user": USUARI,
+    "password": CONTRASENYA
+}
+```
+
 Cal tenir una terminal executant `docker-compose up --build` des de la carpeta del projecte.
 L'aplicació és accessible des del navegador, a `localhost`.
 
@@ -26,8 +36,8 @@ Per permetre la pujada de vídeos des del frontend cal crear l'arxiu `frontend/d
 En aquest arxiu ha d'haver-hi:
 ```json
 {
-	"usuari": EMAIL,
-	"contrasenya": CONTRASENYA
+    "usuari": EMAIL,
+    "contrasenya": CONTRASENYA
 }
 ```
 
