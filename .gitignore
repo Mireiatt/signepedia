@@ -11,6 +11,4 @@ frontend/package-lock.json
 frontend/dades_correu.json
 
 .Rproj.user
-scripts/.Rhistory
-scripts/.RData
-scripts/scripts.Rout
+scripts/*
